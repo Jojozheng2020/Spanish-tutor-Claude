@@ -24,3 +24,7 @@ Thumbs.db
 
 # Keep lib/ directory for source code!
 
+
+# Android signing (DO NOT commit private keys)
+android/key.properties
+android/release-key.jks

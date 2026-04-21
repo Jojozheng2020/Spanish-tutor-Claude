@@ -1,5 +1,6 @@
-package com.spanishvoicetutor.spanish_tutor
+package com.spanishvoicetutor.tutor
 
 import io.flutter.embedding.android.FlutterActivity
 
 class MainActivity : FlutterActivity()
+
