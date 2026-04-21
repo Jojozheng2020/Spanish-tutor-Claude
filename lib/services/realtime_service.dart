@@ -38,12 +38,13 @@ class RealtimeService {
   Function()? onDisconnected;
 
   bool _useIntlEndpoint = false;
+  String _currentVoice = AppConstants.defaultVoice;
 
   bool get isConnected => _isConnected;
 
   void setApiKey(String key) => _apiKey = key;
-
   void setUseIntlEndpoint(bool value) => _useIntlEndpoint = value;
+  void setVoice(String voice) => _currentVoice = voice;
 
   // =========================================================
   // 连接
@@ -158,7 +159,7 @@ class RealtimeService {
       'type': 'session.update',
       'session': {
         'modalities': ['text', 'audio'],
-        'voice': AppConstants.defaultVoice,
+        'voice': _currentVoice,
         'input_audio_format': 'pcm',
         'output_audio_format': 'pcm',
         'input_audio_transcription': {'model': 'whisper-1'},

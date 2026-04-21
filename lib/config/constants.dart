@@ -12,13 +12,12 @@ class AppConstants {
 
   static const String model = 'qwen-omni-turbo-realtime';
 
-  // ---- 音色选项 ----
-  static const String defaultVoice = 'Bodega';
+  // ---- 音色选项（以 API 实际支持的音色为准）----
+  static const String defaultVoice = 'Chelsie';
   static const List<String> availableVoices = [
-    'Bodega',
-    'Sonrisa',
-    'Ethan',
+    'Chelsie',
     'Serena',
+    'Ethan',
     'Cherry',
   ];
 

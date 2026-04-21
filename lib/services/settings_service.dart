@@ -34,7 +34,14 @@ class SettingsService {
 
   Future<String> getVoice() async {
     final sp = await _sp;
-    return sp.getString(AppConstants.prefVoice) ?? AppConstants.defaultVoice;
+    final saved = sp.getString(AppConstants.prefVoice) ?? AppConstants.defaultVoice;
+    // 迁移：如果存储的音色已不在支持列表中（如旧版的 Bodega/Sonrisa），
+    // 自动重置为默认音色，避免 API 报错
+    if (!AppConstants.availableVoices.contains(saved)) {
+      await sp.setString(AppConstants.prefVoice, AppConstants.defaultVoice);
+      return AppConstants.defaultVoice;
+    }
+    return saved;
   }
 
   Future<void> saveVoice(String voice) async {

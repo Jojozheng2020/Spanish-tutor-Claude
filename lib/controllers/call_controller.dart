@@ -94,11 +94,13 @@ class CallController extends ChangeNotifier {
     // 初始化音频
     await _audio.init();
 
-    // 注入 API Key 与端点设置
+    // 注入 API Key、端点设置与音色
     final apiKey = await _settings.getApiKey();
     final useIntl = await _settings.getUseIntlEndpoint();
+    final voice = await _settings.getVoice();
     _realtime.setApiKey(apiKey);
     _realtime.setUseIntlEndpoint(useIntl);
+    _realtime.setVoice(voice);
 
     // 绑定事件回调
     _bindCallbacks();
